@@ -1,0 +1,252 @@
+[
+    {
+        "title": "Don Quijote de la Mancha",
+        "author": "Miguel de Cervantes",
+        "stock": 20
+    },
+    {
+        "title": "Cien a\u00f1os de soledad",
+        "author": "Gabriel Garc\u00eda M\u00e1rquez",
+        "stock": 20
+    },
+    {
+        "title": "Crimen y castigo",
+        "author": "Fi\u00f3dor Dostoyevski",
+        "stock": 20
+    },
+    {
+        "title": "Orgullo y prejuicio",
+        "author": "Jane Austen",
+        "stock": 20
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "stock": 20
+    },
+    {
+        "title": "El Principito",
+        "author": "Antoine de Saint-Exup\u00e9ry",
+        "stock": 20
+    },
+    {
+        "title": "La Odisea",
+        "author": "Homero",
+        "stock": 20
+    },
+    {
+        "title": "Matar a un ruise\u00f1or",
+        "author": "Harper Lee",
+        "stock": 20
+    },
+    {
+        "title": "El Gran Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "stock": 20
+    },
+    {
+        "title": "En busca del tiempo perdido",
+        "author": "Marcel Proust",
+        "stock": 20
+    },
+    {
+        "title": "Ulises",
+        "author": "James Joyce",
+        "stock": 20
+    },
+    {
+        "title": "Madame Bovary",
+        "author": "Gustave Flaubert",
+        "stock": 20
+    },
+    {
+        "title": "Los hermanos Karamazov",
+        "author": "Fi\u00f3dor Dostoyevski",
+        "stock": 20
+    },
+    {
+        "title": "El retrato de Dorian Gray",
+        "author": "Oscar Wilde",
+        "stock": 20
+    },
+    {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "stock": 20
+    },
+    {
+        "title": "La Divina Comedia",
+        "author": "Dante Alighieri",
+        "stock": 20
+    },
+    {
+        "title": "Las mil y una noches",
+        "author": "An\u00f3nimo",
+        "stock": 20
+    },
+    {
+        "title": "Dr\u00e1cula",
+        "author": "Bram Stoker",
+        "stock": 20
+    },
+    {
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "stock": 20
+    },
+    {
+        "title": "Rayuela",
+        "author": "Julio Cort\u00e1zar",
+        "stock": 20
+    },
+    {
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "stock": 20
+    },
+    {
+        "title": "El viejo y el mar",
+        "author": "Ernest Hemingway",
+        "stock": 20
+    },
+    {
+        "title": "La metamorfosis",
+        "author": "Franz Kafka",
+        "stock": 20
+    },
+    {
+        "title": "El se\u00f1or de los anillos",
+        "author": "J.R.R. Tolkien",
+        "stock": 20
+    },
+    {
+        "title": "El hobbit",
+        "author": "J.R.R. Tolkien",
+        "stock": 20
+    },
+    {
+        "title": "Ana Karenina",
+        "author": "Le\u00f3n Tolst\u00f3i",
+        "stock": 20
+    },
+    {
+        "title": "Las aventuras de Huckleberry Finn",
+        "author": "Mark Twain",
+        "stock": 20
+    },
+    {
+        "title": "El guardi\u00e1n entre el centeno",
+        "author": "J.D. Salinger",
+        "stock": 20
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "stock": 20
+    },
+    {
+        "title": "La casa de los esp\u00edritus",
+        "author": "Isabel Allende",
+        "stock": 20
+    },
+    {
+        "title": "La colmena",
+        "author": "Camilo Jos\u00e9 Cela",
+        "stock": 20
+    },
+    {
+        "title": "Pedro P\u00e1ramo",
+        "author": "Juan Rulfo",
+        "stock": 20
+    },
+    {
+        "title": "El amor en los tiempos del c\u00f3lera",
+        "author": "Gabriel Garc\u00eda M\u00e1rquez",
+        "stock": 20
+    },
+    {
+        "title": "La sombra del viento",
+        "author": "Carlos Ruiz Zaf\u00f3n",
+        "stock": 20
+    },
+    {
+        "title": "El perfume",
+        "author": "Patrick S\u00fcskind",
+        "stock": 20
+    },
+    {
+        "title": "La insoportable levedad del ser",
+        "author": "Milan Kundera",
+        "stock": 20
+    },
+    {
+        "title": "La n\u00e1usea",
+        "author": "Jean-Paul Sartre",
+        "stock": 20
+    },
+    {
+        "title": "La tregua",
+        "author": "Mario Benedetti",
+        "stock": 20
+    },
+    {
+        "title": "Ensayo sobre la ceguera",
+        "author": "Jos\u00e9 Saramago",
+        "stock": 20
+    },
+    {
+        "title": "La ladrona de libros",
+        "author": "Markus Zusak",
+        "stock": 20
+    },
+    {
+        "title": "Juego de tronos",
+        "author": "George R.R. Martin",
+        "stock": 20
+    },
+    {
+        "title": "Harry Potter y la piedra filosofal",
+        "author": "J.K. Rowling",
+        "stock": 20
+    },
+    {
+        "title": "Crep\u00fasculo",
+        "author": "Stephenie Meyer",
+        "stock": 20
+    },
+    {
+        "title": "El c\u00f3digo Da Vinci",
+        "author": "Dan Brown",
+        "stock": 20
+    },
+    {
+        "title": "Cumbres borrascosas",
+        "author": "Emily Bront\u00eb",
+        "stock": 20
+    },
+    {
+        "title": "La Biblia",
+        "author": "An\u00f3nimo",
+        "stock": 20
+    },
+    {
+        "title": "El Alquimista",
+        "author": "Paulo Coelho",
+        "stock": 20
+    },
+    {
+        "title": "El diario de Ana Frank",
+        "author": "Ana Frank",
+        "stock": 20
+    },
+    {
+        "title": "El arte de la guerra",
+        "author": "Sun Tzu",
+        "stock": 20
+    },
+    {
+        "title": "La isla del tesoro",
+        "author": "Robert Louis Stevenson",
+        "stock": 20
+    }
+]
