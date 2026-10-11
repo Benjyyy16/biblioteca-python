@@ -40,10 +40,11 @@ class LibraryApp:
         username = self.username_entry.get().strip()
         password = self.password_entry.get().strip()
 
-        if username == "adm" and password == "12":
-            AdminApp(self.root, self.db)
-        elif self.db.verify_user(username, password):
-            UserApp(self.root, self.db, username)
+        if self.db.verify_user(username, password):
+            if self.db.is_admin(username):
+                AdminApp(self.root, self.db)
+            else:
+                UserApp(self.root, self.db, username)
         else:
             messagebox.showerror("Error de inicio de sesión", "Credenciales inválidas")
 

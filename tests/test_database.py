@@ -3,7 +3,7 @@ import os
 import tempfile
 import unittest
 
-from database import Database
+from database import HASH_PREFIX, Database
 
 
 class DatabaseTest(unittest.TestCase):
@@ -47,6 +47,29 @@ class DatabaseTest(unittest.TestCase):
         self.assertEqual(len(self.db.get_books()), 1)
         self.db.delete_book(0)
         self.assertEqual(self.db.get_books(), [])
+
+    def test_passwords_are_stored_hashed(self):
+        self.db.add_user({"username": "ana", "password": "secreta"})
+        stored = next(u for u in self.db.get_users() if u["username"] == "ana")["password"]
+        self.assertTrue(stored.startswith(HASH_PREFIX + "$"))
+        self.assertNotIn("secreta", stored)
+        self.assertFalse(self.db.verify_user("ana", "otra"))
+
+    def test_legacy_plaintext_password_is_upgraded_on_login(self):
+        with open(os.path.join(self.tmp.name, "users.json"), "w", encoding="utf-8") as f:
+            json.dump([{"username": "old", "password": "1234"}], f)
+        db = Database(data_dir=self.tmp.name)
+        self.assertFalse(db.verify_user("old", "nope"))
+        self.assertTrue(db.verify_user("old", "1234"))
+        reloaded = Database(data_dir=self.tmp.name)
+        self.assertTrue(reloaded.get_users()[0]["password"].startswith(HASH_PREFIX + "$"))
+        self.assertTrue(reloaded.verify_user("old", "1234"))
+
+    def test_admin_role(self):
+        self.assertTrue(self.db.verify_user("adm", "12"))
+        self.assertTrue(self.db.is_admin("adm"))
+        self.assertFalse(self.db.is_admin("user"))
+        self.assertFalse(self.db.is_admin("missing"))
 
 
 if __name__ == "__main__":

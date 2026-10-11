@@ -1,8 +1,28 @@
 
+import hashlib
+import hmac
 import json
 import os
+import secrets
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+HASH_PREFIX = "pbkdf2_sha256"
+HASH_ITERATIONS = 200_000
+
+
+def hash_password(password, salt=None):
+    salt = salt or secrets.token_hex(16)
+    digest = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), bytes.fromhex(salt), HASH_ITERATIONS)
+    return f"{HASH_PREFIX}${HASH_ITERATIONS}${salt}${digest.hex()}"
+
+
+def check_password(password, stored):
+    if not stored.startswith(HASH_PREFIX + "$"):
+        # Legacy plaintext entry.
+        return hmac.compare_digest(password.encode("utf-8"), stored.encode("utf-8"))
+    _, iterations, salt, expected = stored.split("$")
+    digest = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), bytes.fromhex(salt), int(iterations))
+    return hmac.compare_digest(digest.hex(), expected)
 
 
 class Database:
@@ -13,7 +33,10 @@ class Database:
     def __init__(self, data_dir=BASE_DIR):
         self.data_dir = data_dir
         self.books = self._load(self.BOOKS_FILE, [])
-        self.users = self._load(self.USERS_FILE, [{"username": "user", "password": "user"}])
+        self.users = self._load(self.USERS_FILE, [
+            {"username": "adm", "password": hash_password("12"), "role": "admin"},
+            {"username": "user", "password": hash_password("user"), "role": "user"},
+        ])
         self.user_books = self._load(self.USER_BOOKS_FILE, {})
 
     def _path(self, filename):
@@ -57,7 +80,11 @@ class Database:
     def add_user(self, user):
         if any(u['username'] == user['username'] for u in self.users):
             return False
-        self.users.append(user)
+        self.users.append({
+            "username": user["username"],
+            "password": hash_password(user["password"]),
+            "role": user.get("role", "user"),
+        })
         self.save_users()
         return True
 
@@ -65,8 +92,22 @@ class Database:
         self.users = [u for u in self.users if u['username'] != username]
         self.save_users()
 
+    def _find_user(self, username):
+        return next((u for u in self.users if u['username'] == username), None)
+
     def verify_user(self, username, password):
-        return any(u['username'] == username and u['password'] == password for u in self.users)
+        user = self._find_user(username)
+        if user is None or not check_password(password, user['password']):
+            return False
+        if not user['password'].startswith(HASH_PREFIX + "$"):
+            # Upgrade legacy plaintext password on successful login.
+            user['password'] = hash_password(password)
+            self.save_users()
+        return True
+
+    def is_admin(self, username):
+        user = self._find_user(username)
+        return bool(user) and user.get("role") == "admin"
 
     def request_book(self, username, book_title):
         if username not in self.user_books:
