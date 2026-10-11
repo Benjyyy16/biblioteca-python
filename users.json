@@ -1,6 +1,1 @@
-[
-    {
-        "username": "user",
-        "password": "user"
-    }
-]
+[{"username": "adm", "password": "pbkdf2_sha256$200000$a9c4aa44f26d8f56c2235de9608b571e$8e2e69341384389ef29d5447f0c9787a5afa556a2a2212c09c2c10decf927eeb", "role": "admin"}, {"username": "user", "password": "pbkdf2_sha256$200000$143c63ce6a4d8f442bd55403ea6ea7a7$2835a17c5bf86d09e2fdb30f05910b0cfab69bcf2ab950d3f22e192d06b6803a", "role": "user"}]
